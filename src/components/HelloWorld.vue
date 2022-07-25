@@ -17,13 +17,21 @@
             jewelery
           </button>
         </div>
+        <br />
+        <br />
         <div
-          class="col-12 col-md-4"
+          align="center"
+          class="col-12 col-md-6 col-lg-4"
           v-for="fetchs in fetchdata"
           :key="fetchs.id"
         >
           <div class="card" style="width: 18rem">
-            <img :src="fetchs.image" class="card-img-top" alt="..." />
+            <img
+              align="center"
+              :src="fetchs.image"
+              class="card-img-top"
+              alt="..."
+            />
             <div class="card-body">
               <p class="card-text">
                 Some quick example text to build on the card title and make up
@@ -88,5 +96,6 @@ img {
   height: 220px;
   padding: 10px;
   margin: 6px;
+  margin-left: 30px;
 }
 </style>
