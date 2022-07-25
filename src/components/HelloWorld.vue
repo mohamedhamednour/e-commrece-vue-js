@@ -30,6 +30,9 @@
                 the bulk of the card's content.
               </p>
               <p>{{ fetchs.price }}</p>
+              <router-link class="btn btn-danger" :to="`/page/${fetchs.id}`"
+                >Detils</router-link
+              >
             </div>
           </div>
         </div>
