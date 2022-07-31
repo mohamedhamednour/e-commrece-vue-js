@@ -1,6 +1,10 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import EcommereBy from "../views/EcommerByid.vue";
+import AddCardBy from "../views/AddCard.vue";
+
+import SignIn from "../components/SignIn.vue";
+import SignUp from "../components/SignUp.vue";
 
 const routes = [
   {
@@ -9,6 +13,18 @@ const routes = [
     component: HomeView,
   },
   { path: "/page/:id", name: "ecmmerebyid", component: EcommereBy },
+  { path: "/card", name: "cardbyid", component: AddCardBy },
+
+  {
+    path: "/sign-in",
+    name: "sign",
+    component: SignIn,
+  },
+  {
+    path: "/sign-up",
+    name: "signup",
+    component: SignUp,
+  },
 
   {
     path: "/about",

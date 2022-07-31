@@ -1,14 +1,63 @@
 <template>
   <div class="hello">
+    <button
+      type="button"
+      class="btn btn-primary cards"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+    >
+      Card
+    </button>
+    <br />
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              {{ dataid.length }}
+            </h5>
+            <br />
+
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div v-for="dataxd in dataid" :key="dataxd.id">
+              <h3>
+                {{ dataxd.item }} : {{ dataxd.title }} price :{{ dataxd.price }}
+              </h3>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
     <div class="container text-center">
       <div class="row">
         <div align="center" className="div">
           <button @click="changeData(this.womens)" className="btn btn-dark">
             women's clothing
-          </button>
-
-          <button @click="changeData('men')" className="btn btn-dark">
-            men
           </button>
           <button @click="changeData('electronics')" className="btn btn-dark">
             electronics
@@ -41,6 +90,9 @@
               <router-link class="btn btn-danger" :to="`/page/${fetchs.id}`"
                 >Detils</router-link
               >
+              <button @click="addcard(fetchs)" class="btn btn-info">
+                add card
+              </button>
             </div>
           </div>
         </div>
@@ -53,10 +105,13 @@
 import axios from "axios";
 export default {
   name: "HelloWorld",
+
   data() {
     return {
       fetchdata: null,
       womens: "women's clothing",
+      dataid: [],
+      files: "hamed",
     };
   },
   mounted() {
@@ -67,12 +122,18 @@ export default {
     console.log(this.fetchdata);
   },
   methods: {
-    changeData(categ) {
+    async changeData(categ) {
       const changes = this.fetchdata.filter((x) => x.category === categ);
       this.fetchdata = changes;
     },
+    async addcard(idx) {
+      // const item = this.fetchdata.find((x) => x.id === idx);
+      this.dataid.push(idx);
+      console.log(this.dataid);
+    },
   },
 };
+export const va = () => console.log(this.$files);
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -97,5 +158,11 @@ img {
   padding: 10px;
   margin: 6px;
   margin-left: 30px;
+}
+.cards {
+  background-image: url("../assets/shoppig.webp");
+  background-repeat: no-repeat;
+  background-size: 80px 60px;
+  height: 50px;
 }
 </style>

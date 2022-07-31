@@ -1,11 +1,8 @@
 <template>
   <div class="home">
-    <img
-      align="center"
-      class="logoimgs"
-      alt="Vue logo"
-      src="../assets/logo.png"
-    />
+    <div align="center">
+      <img src="../assets/logo.png" class="d-block" alt="..." />
+    </div>
     <HelloWorld msg="Welcome to Your Vue.js App" />
   </div>
 </template>
@@ -22,8 +19,8 @@ export default {
 };
 </script>
 <style>
-.logoimgs {
-  width: 300px;
-  height: 150px;
+img {
+  width: 80% !important;
+  padding: 10px;
 }
 </style>

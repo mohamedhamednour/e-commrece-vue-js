@@ -1,6 +1,5 @@
 <template>
   <div class="about">
-    <h1>page not found</h1>
     <img
       align="center"
       class="logoimgs"
@@ -9,6 +8,11 @@
     />
   </div>
 </template>
+<script>
+export default {
+  name: "AboutView",
+};
+</script>
 <style>
 img {
   height: 400px;

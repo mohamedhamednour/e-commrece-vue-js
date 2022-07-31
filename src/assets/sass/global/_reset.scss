@@ -1,0 +1,94 @@
+$myFont: Helvetica, sans-serif;
+$myColor: red;
+$myFontSize: 18px;
+$myWidth: 680px;
+$color-lite-green: rgb(72, 206, 54);
+* {
+  padding: 0;
+  margin: 0;
+}
+
+
+.logoimgs {
+  height: 500px;
+}
+
+.cardimg-id {
+  margin-left: 15px;
+  border: 0px;
+}
+.img-fluid {
+  width: 800px !important;
+}
+
+.divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee;
+}
+.ankorgorget {
+  text-decoration: none;
+}
+
+.cardimg-id img {
+  width: 100%;
+}
+
+//scroll
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgb(128, 128, 128);
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $color-lite-green;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #00b36b;
+}
+
+//end
+
+.carousel {
+  width: 80%;
+  margin: auto;
+}
+.carousel h5 p {
+  color: aliceblue !important;
+}
+
+.carousel img {
+  width: 500px !important;
+  border-radius: 6px;
+}
+.carousel-control-next-icon {
+  color: $color-lite-green;
+}
+footer {
+  // background-color: $color-lite-green !important;
+  color: whitesmoke !important;
+  font-size: 20px;
+  background-color: $color-lite-green !important;
+}
+//create function by scss
+@mixin fun-probrty {
+  color: rgb(40, 225, 55);
+  font-size: 25px;
+  font-weight: bold;
+  border: 1px solid rgb(193, 193, 199);
+}
+h1 {
+  @include fun-probrty();
+}
