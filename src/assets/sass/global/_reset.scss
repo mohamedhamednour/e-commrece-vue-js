@@ -7,6 +7,26 @@ $color-lite-green: rgb(72, 206, 54);
   padding: 0;
   margin: 0;
 }
+.dark{
+  background-color: rgb(20, 20, 42);
+}
+.whites{
+  background-color: #eee;
+}
+.pd:hover{
+  color: black;
+}
+.pd{
+  border: 1px solid $color-lite-green;
+  background-color: beige !important;
+  color: black;
+  margin: 6px;
+}
+.linklogin{
+  text-decoration: none;
+  font-size: 20px;
+  color: #00b36b;
+}
 
 
 .logoimgs {

@@ -70,7 +70,9 @@
                         />
                         <label class="form-check-label" for="form2Example3">
                           I agree all statements in
-                          <a href="#!">Terms of service</a>
+                          <router-link class="linklogin" to="//sign-in"
+                            >Login</router-link
+                          >
                         </label>
                       </div>
 
@@ -121,7 +123,7 @@ export default {
         signup(this.email, this.password);
         // this.testpass === true;
 
-        this.$router.push("/http://localhost:8080/");
+        this.$router.push("/");
       } catch {
         this.testpass === false;
       }

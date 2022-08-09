@@ -22,7 +22,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">
-              {{ dataid.length }}
+              product {{ dataid.length }}
             </h5>
             <br />
 
@@ -38,6 +38,10 @@
               <h3>
                 {{ dataxd.item }} : {{ dataxd.title }} price :{{ dataxd.price }}
               </h3>
+
+              <button class="btn btn-danger" @click="delateitem(dataxd.id)">
+                X
+              </button>
             </div>
           </div>
           <div class="modal-footer">
@@ -56,13 +60,16 @@
     <div class="container text-center">
       <div class="row">
         <div align="center" className="div">
-          <button @click="changeData(this.womens)" className="btn btn-dark">
+          <button @click="changeData(this.womens)" className="btn btn-dark pd">
             women's clothing
           </button>
-          <button @click="changeData('electronics')" className="btn btn-dark">
+          <button
+            @click="changeData('electronics')"
+            className="btn btn-dark pd"
+          >
             electronics
           </button>
-          <button @click="changeData('jewelery')" className="btn btn-dark">
+          <button @click="changeData('jewelery')" className="btn btn-dark pd">
             jewelery
           </button>
         </div>
@@ -125,6 +132,10 @@ export default {
     async changeData(categ) {
       const changes = this.fetchdata.filter((x) => x.category === categ);
       this.fetchdata = changes;
+    },
+    async delateitem(item) {
+      const changes = this.dataid.filter((x) => x.id !== item);
+      this.dataid = changes;
     },
     async addcard(idx) {
       // const item = this.fetchdata.find((x) => x.id === idx);

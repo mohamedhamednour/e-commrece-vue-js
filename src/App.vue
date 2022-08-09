@@ -1,5 +1,5 @@
 <template>
-  <div class="dark">
+  <div :class="darks ? 'dark' : 'whites'">
     <div class="dark:bg-dark">
       <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
@@ -59,6 +59,13 @@
                 Search
               </button>
             </form>
+            <button @click="darkss()" class="btn btn-dark">dark</button>
+            <button
+              @click="whitel()"
+              class="btn btn-praimary border-x-cyan-600"
+            >
+              white
+            </button>
           </div>
         </div>
       </nav>
@@ -75,6 +82,19 @@ export default {
   name: "app",
   components: {
     FooterName,
+  },
+  data() {
+    return {
+      darks: false,
+    };
+  },
+  methods: {
+    darkss() {
+      this.darks = true;
+    },
+    whitel() {
+      this.darks = false;
+    },
   },
 };
 </script>

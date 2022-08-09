@@ -5,12 +5,14 @@ import AddCardBy from "../views/AddCard.vue";
 
 import SignIn from "../components/SignIn.vue";
 import SignUp from "../components/SignUp.vue";
-
 const routes = [
   {
     path: "/",
     name: "home",
     component: HomeView,
+    meta: {
+      requiresAuth: true,
+    },
   },
   { path: "/page/:id", name: "ecmmerebyid", component: EcommereBy },
   { path: "/card", name: "cardbyid", component: AddCardBy },
