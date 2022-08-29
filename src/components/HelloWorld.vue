@@ -6,7 +6,7 @@
       data-bs-toggle="modal"
       data-bs-target="#exampleModal"
     >
-      Card
+      Card {{ dataid.length }}
     </button>
     <br />
 
@@ -60,8 +60,8 @@
     <div class="container text-center">
       <div class="row">
         <div align="center" className="div">
-          <button @click="changeData(this.womens)" className="btn btn-dark pd">
-            women's clothing
+          <button @click="changeData('jewelery')" className="btn btn-dark pd">
+            jewelery
           </button>
           <button
             @click="changeData('electronics')"
@@ -69,8 +69,17 @@
           >
             electronics
           </button>
-          <button @click="changeData('jewelery')" className="btn btn-dark pd">
-            jewelery
+          <button
+            @click="changeData(`men's clothing`)"
+            className="btn btn-dark pd"
+          >
+            men's clothing
+          </button>
+          <button
+            @click="changeData(`women's clothing`)"
+            className="btn btn-dark pd"
+          >
+            women's clothing
           </button>
         </div>
         <br />
@@ -78,7 +87,7 @@
         <div
           align="center"
           class="col-12 col-md-6 col-lg-4"
-          v-for="fetchs in fetchdata"
+          v-for="fetchs in filtred"
           :key="fetchs.id"
         >
           <div class="card" style="width: 18rem">
@@ -110,12 +119,12 @@
 
 <script>
 import axios from "axios";
+import { mapGetters } from "vuex";
 export default {
   name: "HelloWorld",
 
   data() {
     return {
-      fetchdata: null,
       womens: "women's clothing",
       dataid: [],
       files: "hamed",
@@ -124,14 +133,17 @@ export default {
   mounted() {
     axios
       .get("https://fakestoreapi.com/products")
-      .then((response) => (this.fetchdata = response.data))
+      .then((response) => {
+        this.$store.dispatch("user", response.data);
+        this.$store.dispatch("filtred", response.data);
+      })
       .catch((error) => console.log(error));
     console.log(this.fetchdata);
+    this.changeData();
   },
   methods: {
-    async changeData(categ) {
-      const changes = this.fetchdata.filter((x) => x.category === categ);
-      this.fetchdata = changes;
+    changeData(categ) {
+      this.$store.commit("changedata", categ);
     },
     async delateitem(item) {
       const changes = this.dataid.filter((x) => x.id !== item);
@@ -142,6 +154,9 @@ export default {
       this.dataid.push(idx);
       console.log(this.dataid);
     },
+  },
+  computed: {
+    ...mapGetters(["user", "filtred"]),
   },
 };
 export const va = () => console.log(this.$files);
@@ -164,8 +179,8 @@ a {
   color: #42b983;
 }
 img {
-  width: 200px;
-  height: 220px;
+  width: 150px;
+  height: 150px;
   padding: 10px;
   margin: 6px;
   margin-left: 30px;

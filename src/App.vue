@@ -37,8 +37,30 @@
                   Category
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">men's clothing</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li>
+                    <button
+                      class="dropdown-item"
+                      @click="changeData('electronics')"
+                    >
+                      electronics
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      class="dropdown-item"
+                      @click="changeData(`men's clothing`)"
+                    >
+                      men's clothing
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      class="dropdown-item"
+                      @click="changeData(`jewelery`)"
+                    >
+                      jewelery
+                    </button>
+                  </li>
                 </ul>
               </li>
               <li class="nav-item">
@@ -89,6 +111,9 @@ export default {
     };
   },
   methods: {
+    changeData(categ) {
+      this.$store.commit("changedata", categ);
+    },
     darkss() {
       this.darks = true;
     },

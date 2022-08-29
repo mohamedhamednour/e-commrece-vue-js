@@ -20,7 +20,7 @@
           <input
             @click="
               () => {
-                fetchbyid.price += 100;
+                fetchbyid.price += fetchbyid.price;
                 return fetchbyid.price;
               }
             "
